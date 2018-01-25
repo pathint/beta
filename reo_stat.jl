@@ -7,8 +7,8 @@ end
 function MatrixREO(M)
     m, n = size(M) # m = sample size, n = genome size
     reos = zeros(Int64, m+1) 
-    for i = 1:n
-        for j = 1:i-1
+    for i = 1:n-1
+        for j = i+1:n
             reos[CountREO(M[:, i], M[:, j]) + 1] += 1
         end
     end
